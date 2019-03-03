@@ -5,7 +5,7 @@
 var SEARCH_MAX = 10;  // 予約最大件数 = 一度に処理する件数（少ないほうが速くて制限を受けにくい、最大500）
 var SEARCH_TERM = "in:draft is:starred";  // 検索条件：下書きかつスター付き
 
-function bookingSendDraftMail2() {
+function bookingSendDraftMail() {
   // GmailApp.search はスレッドを取得するため、下書きメール（下書きに入った下書きを持つスレッドがヒットする）以外もヒットしてしまう。
   // そのため、GmailApp.getMessagesForThreads で各メールを取得する必要がある。
   var myThreads = GmailApp.search(SEARCH_TERM, 0, SEARCH_MAX); //条件にマッチしたスレッドを検索して取得 / 最大500 
