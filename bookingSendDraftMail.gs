@@ -1,5 +1,7 @@
 // Base code Develoer by kijtra (https://kijtra.com/article/gmail-delay-send-by-google-apps-script/)
 // custimized by Kimiya Kitani (@kimipooh) 
+// @1.0 March 3, 2019 Released.
+// @1.1 March 5, 2019 Available to multiple spaces between date and time.
 
 // 環境設定
 var SEARCH_MAX = 10;  // 予約最大件数 = 一度に処理する件数（少ないほうが速くて制限を受けにくい、最大500）
@@ -34,7 +36,7 @@ function bookingSendDraftMail() {
       //件名を取得
       var str = mes.getSubject();
       //件名から日時を抽出
-      var match = str.match(/^(\{(\d{4}[\/\-]\d{1,2}[\/\-]\d{1,2} \d{1,2}:\d{1,2})\}) ?(.*)?/);
+      var match = str.match(/^(\{(\d{4}[\/\-]\d{1,2}[\/\-]\d{1,2}([\s])+\d{1,2}:\d{1,2})\}) ?(.*)?/);
       //日時が抽出できないなら無視
       if (!match || !match[1]) {
         continue;
